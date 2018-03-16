@@ -1,0 +1,51 @@
+<div>
+  <img [src]="avartar" width="200px">
+
+</div>
+<button (click)="changeTab(1)">nhan1</button>
+<button (click)="changeTab(2)">nhan2</button>
+<button (click)="changeTab(3)">nhan3</button>
+
+<div [ngSwitch]="index">
+  <div *ngSwitchCase="1">
+    <div>Lorem ipsum dolor sit amet.</div>
+  </div>
+  <div *ngSwitchCase="2">
+    <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum in repellat neque animi distinctio minus possimus asperiores,
+      adipisci esse unde.</div>
+  </div>
+  <div *ngSwitchCase="3">
+    <div>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Exercitationem magnam modi quaerat, corrupti totam eligendi?</div>
+  </div>
+</div>
+
+
+<button (click)="onclick()">click me</button>
+<h2 *ngIf="ckeckT" [style.color]=" clorBt ? 'red' : 'gray' ">{{message}}</h2>
+
+<div *ngIf="contact">
+  <div *ngFor="let contact of contact;let i = index">
+    <ul>
+
+      <li>{{contact.id}}</li>
+      <li>{{contact.name}}</li>
+      <li>{{contact.job}}</li>
+      <!-- <img *ngIf="contact.avatar?.url" [src]="contact.avatar?.url" width="200px"> -->
+      <tienvu-witch   [checked]="contact.avatar?.url" (changeX)="tvSitch($event,i)"></tienvu-witch>
+
+      <tienvu-contact-compo [anhurl]="contact.avatar?.url" [round]="contact.round">
+
+      </tienvu-contact-compo>
+
+    </ul>
+  </div>
+</div>
+
+
+<div>
+  <input type="text" [(ngModel)]="hello" (keyup.enter)="onClick1()">
+  <button (click)="onClick1()">nhap di</button>
+  <ul *ngFor="let i of messages">
+    <li>{{i}}</li>
+  </ul>
+</div>
